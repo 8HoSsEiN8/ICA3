@@ -41,7 +41,7 @@ while True:
     hsv = cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
 
     # Define upper and lower range of green color in HSV
-    lower_blue = np.array([0,50,50], dtype=np.uint8)
+    lower_blue = np.array([0,100,100], dtype=np.uint8)
     upper_blue = np.array([20,255,255], dtype=np.uint8)
 
     # Threshold the HSV image to get only green colors
@@ -81,6 +81,7 @@ while True:
     controller.x = x
     controller.y = y
     e.put(controller)
+    time.sleep(.1)
 
    
    

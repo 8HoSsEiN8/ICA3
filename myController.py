@@ -43,27 +43,38 @@ while True:
 	y = controller.y
 	print '\nErrors in X & Y is:\t', x, ',\t', y
 	
+	k = 0.012
+	dThetaX = math.radians(-k * x)
+	dThetaY = math.radians(k * y)
+	#if (y < 0):
+	#	dThetaY = -dThetaY
+	
+	#if (x > 0):
+	#	dThetaX = -dThetaX
+	
+	'''
 	if abs(x) < near:
 		dThetaX = 0
 	else:
 		if abs(x) < 40: 	# Slow down when near the center
-			dThetaX = math.radians(1)
+			dThetaX = math.radians(.5)
 		else:
-			dThetaX = math.radians(4)
-		if (x < 0):
+			dThetaX = math.radians(2)
+		if (x > 0):
 			dThetaX = -dThetaX
+	'''
 	
-	
+	'''
 	if abs(y) < near:
 		dThetaY = 0
 	else:
 		if abs(y) < 40: 	# Slow down when near the center
-			dThetaY = math.radians(1)
+			dThetaY = math.radians(.5)
 		else:
-			dThetaY = math.radians(4)
+			dThetaY = math.radians(2)
 		if (y < 0):
 			dThetaY = -dThetaY
-	
+	'''
 		
 	# Command dyn only if there is an error:
 	if ( (dThetaX != 0) | (dThetaY !=0) ):

@@ -6,11 +6,12 @@ import cv2
 import sys
 import ach
 import controller_include as ci
+import time
 
 cascPath = sys.argv[1]
 faceCascade = cv2.CascadeClassifier(cascPath)
 
-video_capture = cv2.VideoCapture(0)
+video_capture = cv2.VideoCapture(1)
 
 ret, frame = video_capture.read()
 height, width, depth = frame.shape
@@ -61,7 +62,9 @@ while True:
     controller.x = x
     controller.y = y
     e.put(controller)
-
+    
+    time.sleep(0.01)
+    
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
